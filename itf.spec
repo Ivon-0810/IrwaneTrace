@@ -12,11 +12,16 @@ a = Analysis(
         ('templates', 'templates'),
         ('static', 'static'),
     ],
-    hiddenimports=[
-        'webview', 'flask',
-        'reportlab', 'reportlab.graphics.barcode', 'reportlab.graphics.barcode.code128',
-        'reportlab.pdfgen', 'reportlab.lib.pagesizes', 'reportlab.lib.units', 'reportlab.lib.colors',
-        'openpyxl', 'openpyxl.styles', 'openpyxl.utils', 'openpyxl.cell._writer',
+   hiddenimports=[
+    'reportlab',
+    'reportlab.graphics',
+    'reportlab.graphics.barcode',
+    'reportlab.graphics.barcode.code93',
+    'reportlab.graphics.barcode.code128',
+    'reportlab.graphics.barcode.code39',
+    'reportlab.graphics.barcode.eanbc',
+    'reportlab.graphics.barcode.qr'
+]
     ],
     hookspath=[],
     hooksconfig={},
