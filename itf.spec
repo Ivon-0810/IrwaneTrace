@@ -1,4 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
 
 block_cipher = None
 
@@ -10,16 +11,7 @@ a = Analysis(
         ('templates', 'templates'),
         ('static', 'static')
     ],
-    hiddenimports=[
-        'reportlab',
-        'reportlab.graphics',
-        'reportlab.graphics.barcode',
-        'reportlab.graphics.barcode.code93',
-        'reportlab.graphics.barcode.code128',
-        'reportlab.graphics.barcode.code39',
-        'reportlab.graphics.barcode.eanbc',
-        'reportlab.graphics.barcode.qr'
-    ],
+    hiddenimports=collect_submodules('reportlab'),
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
