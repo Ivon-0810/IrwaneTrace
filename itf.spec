@@ -1,6 +1,4 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Fichier de build PyInstaller — IrwaneTraceForest (ITF)
-# Utilisation : pyinstaller itf.spec   (depuis un environnement Windows avec les dépendances installées)
 
 block_cipher = None
 
@@ -10,25 +8,26 @@ a = Analysis(
     binaries=[],
     datas=[
         ('templates', 'templates'),
-        ('static', 'static'),
+        ('static', 'static')
     ],
-   hiddenimports=[
-    'reportlab',
-    'reportlab.graphics',
-    'reportlab.graphics.barcode',
-    'reportlab.graphics.barcode.code93',
-    'reportlab.graphics.barcode.code128',
-    'reportlab.graphics.barcode.code39',
-    'reportlab.graphics.barcode.eanbc',
-    'reportlab.graphics.barcode.qr'
-]
+    hiddenimports=[
+        'reportlab',
+        'reportlab.graphics',
+        'reportlab.graphics.barcode',
+        'reportlab.graphics.barcode.code93',
+        'reportlab.graphics.barcode.code128',
+        'reportlab.graphics.barcode.code39',
+        'reportlab.graphics.barcode.eanbc',
+        'reportlab.graphics.barcode.qr'
     ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    noarchive=False,
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
     cipher=block_cipher,
+    noarchive=False,
 )
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
@@ -47,12 +46,10 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,          # False = pas de console visible (application de bureau)
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='static/img/itf.ico',   # facultatif — retirez cette ligne si vous n'avez pas d'icône
-    onefile=True,
 )
